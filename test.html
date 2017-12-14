@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <title>福音信息标题</title>
+        <link rel="stylesheet" type="text/css" href="test.css"/>
+        <script type="text/script" src="text.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <h1>Jesus loves us  福音信息测试页面</h1>
+    </body>
+    <script type="text/javascript">
+
+
+    console.log(acc(4.31,100000));
+
+    //乘法
+    function acc(arg1,arg2)
+    {
+    var m=0,s1=arg1.toString(),s2=arg2.toString();
+    try{m+=s1.split(".")[1].length}catch(e){}
+    try{m+=s2.split(".")[1].length}catch(e){}
+    return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m)
+    }
+    </script>
+</html>
