@@ -1,94 +1,707 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        吃瓜ing
-    </title>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=750,user-scalable=no" /> -->
+
+    <title>River的约会消息</title>
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="iconfont.css">
+    <script> 
+!function(e) {
+    function t(n) {
+        if (i[n]) return i[n].exports;
+        var r = i[n] = {
+            exports: {},
+            id: n,
+            loaded: !1
+        };
+        return e[n].call(r.exports, r, r.exports, t),
+        r.loaded = !0,
+        r.exports
+    }
+    var i = {};
+    return t.m = e,
+    t.c = i,
+    t.p = "",
+    t(0)
+} ([function(e, t) {
+    "use strict";
+    Object.defineProperty(t, "__esModule", {
+        value: !0
+    });
+    var i = window;
+    t["default"] = i.vl = function(e, t) {
+        var n = e || 100,
+        r = t || 750,
+        a = i.document,
+        d = navigator.userAgent,
+        o = d.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),
+        l = d.match(/U3\/((\d+|\.){5,})/i),
+        s = l && parseInt(l[1].split(".").join(""), 10) >= 80,
+        u = a.documentElement,
+        c = 1;
+        if (o && o[1] > 534 || s) {
+            u.style.fontSize = n + "px";
+            var p = a.createElement("div");
+            p.setAttribute("style", "width: 1rem;display:none"),
+            u.appendChild(p);
+            var m = i.getComputedStyle(p).width;
+            if (u.removeChild(p), m !== u.style.fontSize) {
+                var v = parseInt(m, 10);
+                c = 100 / v
+            }
+        }
+        var f = a.querySelector('meta[name="viewport"]');
+        f || (f = a.createElement("meta"), f.setAttribute("name", "viewport"), a.head.appendChild(f)),
+        f.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1");
+        var h = function() {
+            u.style.fontSize = n / r * u.clientWidth * c + "px"
+        };
+        h(),
+        i.addEventListener("resize", h)
+    },
+    e.exports = t["default"]
+}]);
+vl(100, 750); 
+    </script>
     <style>
-        body,
-        html {
+        /*//!*公共样式--开始*!*/
+        html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
             margin: 0;
-            padding: 0px;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            text-align: center;
+            padding: 0;
+        }
+        *{box-sizing: border-box;}
+        html, body {
+            min-height: 100%;
+            font-size:28px;
         }
 
         body {
-            /* background-image: url(img/12.jpg); */
-            background-size: cover;
+        font-family: "Microsoft YaHei";
+            font-family: "Avenir","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+            color:#585858;
+
+        }
+        h1, h2, h3, h4, h5, h6{font-weight:normal;}
+        ul,ol {
+            list-style: none;
         }
 
-        .mark {
+        img {
+            border: none;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            color: #585858;
+        }
+
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        input, textarea {
+            outline: none;
+            border: none;
+        }
+
+        textarea {
+            resize: none;
+            overflow: auto;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .clearfix:after {
+            content: ".";
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            display: block;
+            clear: both;
+            overflow:hidden;
+        }
+
+        .fl {
+            float: left
+        }
+
+        .fr {
+            float: right
+        }
+
+        .tl {
+            /* text-align: left; */
+        }
+
+        .tc {
+            /* text-align: center */
+        }
+
+        .tr {
+            text-align: right;
+        }
+
+        .ellipse {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .inline{
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+        }
+
+
+
+        .cssgo {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+
+        }
+        /*公共样式 *** 结束*/
+        @font-face
+        {
+            font-family: myFont;
+            src: url('迷你简丫丫.ttf');
+        }
+        html{
+            width: 100%;
+            height: 100%;
+            font-size: 30px;
+        }
+
+        body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            /* font-family: myFont; */
+            background-color: #fdf7eb;
+            
+        }
+
+        .index{
+            font-family: myFont;            
+            overflow: hidden;
+            /*display: none;*/
+            /* background-color: #fdf7eb; */
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+        }
+
+        .head-box{
+            display: none;
+
+            width: 80px;
+            height: 80px;
+            background-image: url("./img/my.png");
+            /*background-color: #00b6e3;*/
+            background-size: 100% auto;
+            border-radius: 50%;
+            border: 2px solid pink;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            margin-left: -40px;
+        }
+
+        #c{
+            opacity: .2;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, .9)
+            z-index: -1;
         }
 
-        .con-wrap {
+
+        .index .title{
+            display: none;
+            line-height: 48px;
+            font-size: 40px;
             width: 100%;
-            height: 100%;
-            padding-top: 50%;
-            position: relative;
-            z-index: 100;
+            position: absolute;
+            top: 30%;
+            text-align: center;
+            z-index: 11;
+
         }
 
-        h1 {
-            text-align: 30px;
+        .next{
+            display: none;
+            opacity: .8;
+            transition: all .5s;
+            -webkit-transition: all .5s;
+            position: absolute;
+            top: 60%;
+            text-align: center;
+            height: 60px;
+            width: 100%;
+            /*background-color: #ccc;*/
+            text-align: center;
+            z-index: 11;
+
+        }
+        .next span{
+            font-size: 60px;
+        }
+
+        /*.next .c1{*/
+            /*!*background-color: #00b6e3;*!*/
+        /*}*/
+
+        /*.next .c2{*/
+            /*position: relative;*/
+            /*top: 16px;*/
+            /*width: 80px;*/
+            /*height: 80px;*/
+
+        /*}*/
+
+        /*.next .c3{*/
+            /*position: relative;*/
+            /*top: 16px;*/
+            /*width: 40px;*/
+            /*height: 40px;*/
+        /*}*/
+        .con{
+            position: absolute;
+            top: 110vh;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: auto;
+            box-sizing: border-box;
+            padding-top: 140px;
+            text-align: center;
+        }
+        .con p {
+            padding: 10px;
+            /* text-indent: 80px; */
+            font-size: 14px;
+            line-height: 24px;
+        }
+        .con .p1{
+            /* text-indent: 60px; */
+            font-size: 20px;
+        }
+        .con .p2{
+            color: #000000;
+        }
+        .con-title{
+            font-family: myFont;            
+            
+            /* text-align: left; */
+            padding: 0px;
+            padding-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .imgs{
+            display: none;
+            opacity: .5;
+        }
+
+        .img1{
+            position: absolute;
+            right:10px;
+            top: 260px;
+            height: 700px;
+            z-index: 11;
+        }
+
+
+
+        .img2{
+            position: absolute;
+            left:10px;
+            top: 260px;
+            height: 700px;
+            z-index: 11;
+        }
+
+        .last{
+            text-align: right;
+        }
+        .wrap-box{
+            height: 100%;
+            width: 100%;
+        }
+        .con .pc{
+            padding: 8px;
+            line-height: 20px;
+        }
+        .con .pc i{
+            color: #890018;
         }
     </style>
 </head>
-
 <body>
-    <div class="mark">
+
+    <div class="wrap-box">
+
+        <canvas id="c"></canvas>
+
+        <div class="index">
+            <!--泡沫-->
+            <!-- <div class="head-box slideInDown animated" >
+
+            </div>
+            <img class="imgs img2 animated slideInRight" src="img/2.png" alt="">
+            <img class="imgs img1 animated slideInLeft" src="img/3.png" alt=""> -->
+
+            <p class="title animated zoomInLeft">
+                来自<strong> River </strong>的<br>约会请求
+            </p>
+            <div class="next slideInUp animated">
+                <p class=" animated infinite swing">
+                    <span class="icon iconfont icon-xinfeng"></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="con">
+            <div class="head-box slideInDown animated" ></div>
+            <!-- <p class="p1">这是一封来自River的约会请求~</p> -->
+            <h5 class="con-title">Dear 梦颖</h5>
+            
+            <p class="p2">
+                好久没彼此面对面认真的沟通交流了<br>
+                对此表示非常的期待<br>
+                有好多好多话和事情想与你交流<br>
+                废话不多说，约会内容及动机如下
+            </p>
+            <p class="pc">
+                时间：
+                <i>下周二（7.31）晚上7点</i> 
+            </p>
+            <p class="pc">
+                地点：
+                <i>月亮湾</i> 
+            </p>
+            <p class="pc">
+                聊聊：
+                <i>上次以来新的认识和遇见，
+                以及为更好的明天</i><br>
+                <i>当然还有一些其他的事情~</i>
+            </p>
+            <p class="pc">
+                动机：
+                <i>为这场温柔的革命积极到底！</i>
+            </p>
+            <p class="pc">
+                根基：
+                <i>彼此以基督的心为心....</i>
+            </p>
+            <p class="pc">
+                现在想对你说：<br>
+                <i>爱上你对于我是一件很喜乐很感恩的事，<br>能和你在约会中互相了解，<br>使我们的关系变得更加亲密，<br>是我现在最想祈祷的事~</i>
+            </p>
+            <p class="pc">
+                * 如果时间和地点有不方便，我再重新安排
+            </p>
+        </div>
 
     </div>
-    <div class="con-wrap">
-        <h3 id="time1"></h3>
-        <h3 id="time2"></h3>
-    </div>
+
+    <script src="./js/jquery.min.js"></script>
     <script>
-        // $(function(){
-        var times = 0;
-        setInterval(function () {
+        $('.next')[0].addEventListener("touchstart",function(e){
+            e.preventDefault();
+            var e = e||window.event;
+            console.log("123");
+            $(".index").animate({top:"-130vh"},500);
+            $(".con").animate({top:"0"},1000);
+            setTimeout(function () {
+            $('.head-box').css({
+                display:'block',
+            })
+            $('.imgs').css({
+                display:'block',
+            })
+            },1000);
+            // 添加样式展现内容
 
-            var nowTime = new Date().getTime();
-            var tarTime = new Date("2019/12/19 23:11:00").getTime();
-            var lastTime = new Date("2017/12/19 23:11:00").getTime();
+        },false)
+        // 上线删除下边的
+        // $(".index").animate({top:"-130vh"},800);
+        // $(".con").animate({top:"0"},800);
+        // setTimeout(function () {
+        //     $('.head-box').css({
+        //         display:'block',
+        //     })
+        //     $('.imgs').css({
+        //         display:'block',
+        //     })
+        //     },600);
+        //animetion.css x:动画名 obj：要控制的对象 z：动画之后的class display: 动画之后的状态
+        function testAnim(x,obj,z,display) {
 
-            var disTime = Math.round((tarTime - nowTime) / 1000);
-            var seconds = disTime % 60;
-            var minutes = (disTime - seconds) / 60 % 60;
-            var hours = (disTime - minutes * 60 - seconds) / 3600 % 24;
-            var day = (disTime - hours * 3600 - minutes * 60 - seconds) / 86400;
+            var cn = $(obj).attr('class');
+            $(this).removeClass();
 
-            var disTime2 = Math.round((nowTime - lastTime) / 1000);
-            var seconds2 = disTime2 % 60;
-            var minutes2 = (disTime2 - seconds2) / 60 % 60;
-            var hours2 = (disTime2 - minutes2 * 60 - seconds2) / 3600 % 24;
-            var day2 = (disTime2 - hours2 * 3600 - minutes2 * 60 - seconds2) / 86400;
+            $(obj).addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+
+                $(this).removeClass();
 
 
-            // document.getElementById('time1').innerHTML = day + " day " + "<span style='display: inline-block'>" + o(hours) + "</span>" + " h " + "<span style='display: inline-block'>" + o(minutes) + "</span>" + " m " + "<span class='leftspan' style='display: inline-block'>" + o(seconds) + "</span>" + " s ";
-            document.getElementById('time2').innerHTML = day + " 天 " + "<span style='display: inline-block'>" + o(hours) + "</span>" + " 时 " + "<span style='display: inline-block'>" + o(minutes) + "</span>" + " 分 " + "<span style='display: inline-block'>" + o(seconds) + "</span>" + " 秒 "
+                if(z){
+                    $(this).addClass(z);
+                }else{
+                    $(this).addClass(cn);
+                }
 
-
-
-        }, 50)
-        // });
-
-        function o(s) {
-            return s < 10 ? '0' + s : s;
-        }
+                $(this).removeClass(x);
+                if(display){
+                    $(obj).css({
+                        'display': display
+                    })
+                }
+            });
+        };
+        
+        setTimeout(function () {
+            $('.index .title').css({
+                display:'block',
+            })
+        },300);
+        setTimeout(function () {
+            $('.next').css({
+                display:'block',
+            })
+        },1500);
     </script>
-</body>
 
+    <!--背景泡沫-->
+
+    <script>
+
+        function aa() {
+
+            var c = document.getElementById('c'),
+                $ = c.getContext('2d'),
+                w = c.width = window.innerWidth,
+                h = c.height = window.innerHeight;
+
+            var i, bubblesNumber = w * h > 750000 ? 35 : 20,
+                objects = [],
+                maxRadius = w * h > 500000 ? 50 : 35,
+                maxYVelocity = 2;
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            function insertElementsAtIndex(index, arrayTo, arrayFrom, removeCount) {
+                var removed = false;
+                for (var i = arrayFrom.length - 1; i >= 0; i--) {
+                    if (removeCount && !removed) {
+                        arrayTo.splice(index, removeCount, arrayFrom[i]);
+                        removed = true;
+                        continue;
+                    }
+                    arrayTo.splice(index, 0, arrayFrom[i]);
+                }
+            }
+
+            function Vector(x, y) {
+                this.x = x || 0;
+                this.y = y || 0;
+            }
+
+            Vector.prototype.add = function(v) {
+                this.x += v.x;
+                this.y += v.y;
+                return this;
+            };
+
+            Vector.prototype.multiply = function(value) {
+                this.x *= value;
+                this.y *= value;
+                return this;
+            };
+
+            Vector.prototype.getMagnitude = function() {
+                return Math.sqrt(this.x * this.x + this.y * this.y);
+            };
+
+            function Fragment(position, velocity, radius, hue) {
+                this.position = position;
+                this.velocity = velocity;
+                this.startSpeed = this.velocity.getMagnitude();
+                this.radius = radius;
+                this.hue = hue;
+            }
+
+            Fragment.prototype.update = function(world) {
+                this.velocity.multiply(world.physicalProperties.friction);
+                this.position.add(this.velocity);
+                this.radius *= this.velocity.getMagnitude() / this.startSpeed;
+                if (this.radius < 0.1) {
+                    world.objects.splice(world.objects.indexOf(this), 1);
+                }
+            }
+
+            Fragment.prototype.render = function($) {
+                $.beginPath();
+                $.fillStyle = 'hsl(' + this.hue + ', 100%, 50%)';
+                $.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
+                $.fill();
+            };
+
+            function Bubble(x, y, speed, radius, fragments, swing, hue) {
+                this.x = x;
+                this.y = y;
+                this.startX = this.x;
+                this.speed = speed;
+                this.radius = radius;
+                this.fragments = fragments;
+                this.swing = swing;
+                this.hue = hue;
+            }
+
+            Bubble.prototype.update = function(world) {
+                this.x = this.startX + Math.cos(this.y / 80) * this.swing;
+                this.y += this.speed;
+                if (this.y + this.radius < 0) {
+                    this.y = world.physicalProperties.height + this.radius;
+                }
+            }
+
+            Bubble.prototype.render = function($) {
+                $.beginPath();
+                $.fillStyle = 'hsl(' + this.hue + ', 100%, 50%)';
+                $.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                $.fill();
+            };
+
+            Bubble.prototype.pop = function(world) {
+                var arr = [];
+                for (var i = 0; i < this.fragments; i++) {
+                    arr.push(new Fragment(new Vector(this.x, this.y), new Vector(randomInRange(-2, 2), randomInRange(-2, 2)), randomInRange(2, this.radius / 4), this.hue));
+                }
+                insertElementsAtIndex(world.objects.indexOf(this), world.objects, arr, 1);
+            };
+
+            function World(physicalProperties, objects, ctx, background) {
+                this.physicalProperties = physicalProperties;
+                this.objects = objects;
+                this.ctx = ctx;
+                this.background = background;
+                this.frameID = 0;
+            }
+
+            World.prototype.update = function() {
+                for (var i = 0; i < this.objects.length; i++) {
+                    this.objects[i].update(this);
+                }
+            };
+
+            World.prototype.render = function() {
+                this.ctx.clearRect(0, 0, this.physicalProperties.width, this.physicalProperties.height);
+                if (this.background) {
+                    this.ctx.fillStyle = this.background;
+                    this.ctx.fillRect(0, 0, this.physicalProperties.width, this.physicalProperties.height);
+                }
+
+
+                for (var i = 0; i < this.objects.length; i++) {
+                    this.objects[i].render(this.ctx);
+                }
+            };
+
+            World.prototype.animate = function() {
+                this.update();
+                this.render();
+                this.frameID = requestAnimationFrame(this.animate.bind(this));
+            };
+
+            for (i = 0; i < bubblesNumber; i++) {
+                objects.push(new Bubble(Math.random() * w, Math.random() * h, -randomInRange(0.5, maxYVelocity), randomInRange(5, maxRadius), randomInRange(7, 10), randomInRange(-40, 40), randomInRange(0, 360)));
+            }
+
+            var world = new World({
+                width: c.width,
+                height: c.height,
+                friction: 0.997
+            }, objects, $, false);
+
+            $.globalCompositeOperation = 'lighter';
+
+            world.animate();
+
+            window.addEventListener('resize', function() {
+                w = world.physicalProperties.width = c.width = window.innerWidth;
+                h = world.physicalProperties.height = c.height = window.innerHeight;
+                $.globalCompositeOperation = 'lighter';
+            });
+
+            window.addEventListener('mousemove',
+                function(e) {
+                    for(var i = 0; i < world.objects.length; i++) {
+                        if((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
+                            world.objects[i].pop(world);
+//			console.log(world.objects.length)
+//			console.log(Math.abs(bubblesNumber - world.objects.length));
+                            if(world.objects.length < bubblesNumber) {
+
+                                for(i = 0; i < Math.abs(bubblesNumber - world.objects.length); i++) {
+                                    objects.push(new Bubble(Math.random() * w, -Math.random() * h, -randomInRange(0.5, maxYVelocity), randomInRange(5, maxRadius), randomInRange(7, 10), randomInRange(-40, 40), randomInRange(0, 360)));
+                                }
+                            }
+                        }
+                    }
+                });
+
+            window.addEventListener('touchmove', function(e) {
+                for(var i = 0; i < world.objects.length; i++) {
+                    if((world.objects[i] instanceof Bubble) && (e.touches[0].clientX > world.objects[i].x - world.objects[i].radius && e.touches[0].clientX < world.objects[i].x + world.objects[i].radius && e.touches[0].clientY < world.objects[i].y + world.objects[i].radius && e.touches[0].clientY > world.objects[i].y - world.objects[i].radius)) {
+                        world.objects[i].pop(world);
+
+                        if(world.objects.length < bubblesNumber) {
+
+                            for(i = 0; i < bubblesNumber - world.objects.length; i++) {
+                                objects.push(new Bubble( Math.random() * w, -Math.random() * h, -randomInRange(0.5, maxYVelocity), randomInRange(5, maxRadius), randomInRange(7, 10), randomInRange(-40, 40), randomInRange(0, 360)));
+                            }
+                        }
+
+
+                    }
+
+                }
+            });
+
+        };
+        aa();</script>
+
+<!---->
+
+
+</body>
 </html>
