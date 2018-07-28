@@ -302,6 +302,7 @@ vl(100, 750);
             box-sizing: border-box;
             padding-top: 130px;
             text-align: center;
+            background: rgba(253,247,235,.7)
         }
         .con p {
             padding: 10px;
@@ -368,6 +369,10 @@ vl(100, 750);
     </style>
 </head>
 <body>
+
+        
+
+            <audio src="./选择.mp3" controls autoplay></audio>
 
     <div class="wrap-box">
 
@@ -451,7 +456,8 @@ vl(100, 750);
                 $('.next')[0].style.top = RndNum(2) + '%'
                 $('.next')[0].style.left = RndNum(2) + '%'
             }
-
+            
+            
         },false)
 
 function RndNum(n){
@@ -486,14 +492,11 @@ function RndNum(n){
         // 上线删除下边的
         // $(".index").animate({top:"-130vh"},800);
         // $(".con").animate({top:"0"},800);
-        // setTimeout(function () {
-        //     $('.head-box').css({
-        //         display:'block',
-        //     })
-        //     $('.imgs').css({
-        //         display:'block',
-        //     })
-        //     },600);
+//         setTimeout(function () {
+//             if(audio.paused)                     {                 
+//       audio.play();//audio.play();// 这个就是播放  
+//   }
+//             },600);
         //animetion.css x:动画名 obj：要控制的对象 z：动画之后的class display: 动画之后的状态
         function testAnim(x,obj,z,display) {
 
