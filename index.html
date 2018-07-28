@@ -305,7 +305,8 @@ vl(100, 750);
             box-sizing: border-box;
             padding-top: 100px;
             text-align: center;
-            background: rgba(253,247,235,.7)
+            background: rgba(253,247,235,.7);
+            opacity: 1;
         }
         .con p {
             padding: 10px;
@@ -378,6 +379,43 @@ vl(100, 750);
         .title strong{
             /* font-family: Arial;             */
         }
+        #ting{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            margin-left: -20px;
+        }
+        .last-text{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            padding-top: 20%;
+           
+        }
+        .last-text p{
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .last-text .tow{
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            left: 0px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            
+        }
+        .last-text .tow span{
+            color: #890018;
+
+        }
     </style>
 </head>
 <body>
@@ -409,13 +447,41 @@ vl(100, 750);
             </div>
         </div>
 
+        <!-- 暗语 -->
+        <div class="last-text">
+            <p class="pc">
+                    <!-- 现在想对你说：<br><br> -->
+                <i>
+                    一切所有的动机和勇气，源于我爱你<br><br>
+                    爱上你对于我是一件很喜乐很感恩的事，<br>
+                    能和你在约会中互相了解，<br>
+                    使我们的关系变得更加亲密，<br><br>
+                    什么是最重要的事，<br>
+                    能和你在一起就是我现在最重要的事，<br>
+                    我愿意抓住一切机会去努力追求，<br>
+                    为了这场温柔的革命，<br>
+                    是我现在最想祈祷的事~
+                </i>
+            </p>
+
+            <p class="tow">
+                <span>
+                    这世界和其上的情欲都要过去，惟独遵行　神旨意的，是永远常存。
+                </span>
+                    <br><br>
+                    <i>约翰一书 2:17</i>
+            </p>
+        </div>
+
 
         <div class="con">
+            <img src="./大笑.svg" alt="" id="ting" class=" animated infinite swing">
             <div class="head-box slideInDown animated" ></div>
             <!-- <p class="p1">这是一封来自River的约会请求~</p> -->
             <h5 class="con-title"></h5>
             
             <p class="p2">
+                谢谢你在忙碌的周末打开这条消息~<br>                
                 好久没彼此面对面认真的沟通交流了<br>
                 对此表示非常的期待<br>
             </p>
@@ -425,7 +491,7 @@ vl(100, 750);
             </p>
             <p class="pc">
                 地点：
-                <i>月亮湾（临平路4号口）</i> <br>
+                <i>筛选中，先定你个时间</i> <br>
             </p>
             <p class="pc">
                 聊聊：
@@ -441,12 +507,12 @@ vl(100, 750);
                 <!-- 根基： -->
                 <i>以基督的心为心，以信心的眼睛，看见新的盼望~</i>
             </p>
-            <p class="pc">
+            <!-- <p class="pc">
                 现在想对你说：<br><br>
                 <i>爱上你对于我是一件很喜乐很感恩的事，<br>能和你在约会中互相了解，<br>使我们的关系变得更加亲密，<br>是我现在最想祈祷的事~</i>
-            </p>
+            </p> -->
             <p class="pc last">
-                * 如果时间和地点有不方便，我再重新安排
+                * 如果时间等其它不方便，我再重新安排
             </p>
         </div>
 
@@ -454,6 +520,7 @@ vl(100, 750);
 
     <script src="./js/jquery.min.js"></script>
     <script>
+        var audio = null
         var m = 0;
         var arr = [
             'O(∩_∩)O',
@@ -470,7 +537,13 @@ vl(100, 750);
             '|•ˇ₃ˇ•｡)'
         ]
         var k = 0
-        
+        $('#ting').click(function(){
+            
+            audio.play()
+            $(".con").animate({opacity:"0"},1300);
+            $(".last-text").animate({opacity:"1"},3000);
+            
+        })
         $('.next')[0].addEventListener("touchstart",function(e){
             e.preventDefault();
             var e = e||window.event;
@@ -488,6 +561,9 @@ vl(100, 750);
                     k = 0
                     
                 },800)
+                audio = document.createElement('audio') 
+                audio.src = './选择.mp3'  
+                audio.preload = "auto"
                 nextPage();
             }else{
                 $('.next')[0].style.top = RndNum(2) + '%'
