@@ -572,9 +572,7 @@ vl(100, 750);
                     k = 0
                     
                 },800)
-                audio = document.createElement('audio') 
-                audio.src = './选择.mp3'  
-                audio.preload = "auto"
+                
                 nextPage();
             }else{
                 $('.next')[0].style.top = RndNum(2) + '%'
@@ -604,6 +602,11 @@ function RndNum(n){
         function nextPage(){
             $(".index").animate({top:"-130vh"},1000);
             $(".con").animate({top:"0"},1000);
+            setTimeout(function(){
+                audio = document.createElement('audio') 
+                audio.src = './选择.mp3'  
+                audio.preload = "auto"
+            },1000)
             setTimeout(function () {
             $('.head-box').css({
                 display:'block',
