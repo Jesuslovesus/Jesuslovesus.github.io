@@ -455,6 +455,17 @@ vl(100, 750);
     <script src="./js/jquery.min.js"></script>
     <script>
         var m = 0;
+        var arr = [
+            '(っ˘̩╭╮˘̩)っ',
+            'O(∩_∩)O',
+            '└(^O^)┐',
+            '┌(^O^)┘',
+            '┌(^O^)┐',
+            '└(^O^)┘',
+            '～(￣▽￣～)~'
+        ]
+        var k = 0
+        
         $('.next')[0].addEventListener("touchstart",function(e){
             e.preventDefault();
             var e = e||window.event;
@@ -463,6 +474,15 @@ vl(100, 750);
 
             
             if(m>2){
+                setInterval(function(){
+                    if(k < arr.length){
+                        window.document.title = arr[k]
+                        k++
+                        return   
+                    }
+                    k = 0
+                    
+                },800)
                 nextPage();
             }else{
                 $('.next')[0].style.top = RndNum(2) + '%'
