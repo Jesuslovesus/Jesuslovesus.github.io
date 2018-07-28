@@ -179,11 +179,11 @@ vl(100, 750);
 
         }
         /*公共样式 *** 结束*/
-        @font-face
+        /* @font-face
         {
             font-family: myFont;
             src: url('迷你简丫丫.ttf');
-        }
+        } */
         html{
             width: 100%;
             height: 100%;
@@ -202,7 +202,7 @@ vl(100, 750);
         }
 
         .index{
-            font-family: myFont;            
+            /* font-family: myFont;             */
             overflow: hidden;
             /*display: none;*/
             /* background-color: #fdf7eb; */
@@ -244,11 +244,14 @@ vl(100, 750);
             line-height: 48px;
             font-size: 40px;
             width: 100%;
+            height: 144px;
             position: absolute;
             top: 30%;
             text-align: center;
             z-index: 11;
-
+            background-image: url("./img/1.png");
+            background-size: 100% auto; 
+            opacity: .8;
         }
 
         .next{
@@ -318,12 +321,18 @@ vl(100, 750);
             color: #000000;
         }
         .con-title{
-            font-family: myFont;            
-            
-            /* text-align: left; */
+            /* font-family: myFont;             */
             padding: 0px;
             padding-bottom: 10px;
             font-size: 30px;
+            width: 50%;
+            background-image: url("./img/5.png");
+            background-size: 100% auto; 
+            height: 41px;
+            left: 50%;
+            position: relative;
+            margin-left: -25%;
+            opacity: .8;
         }
 
         .imgs{
@@ -390,7 +399,7 @@ vl(100, 750);
             <img class="imgs img1 animated slideInLeft" src="img/3.png" alt=""> -->
 
             <p class="title animated zoomInLeft">
-                来自<strong> River </strong>的<br>约会请求
+                <!-- 来自<strong> River </strong>的<br>约会请求 -->
             </p>
             <div class="next slideInUp animated">
                 <p class=" animated infinite swing">
@@ -404,7 +413,7 @@ vl(100, 750);
         <div class="con">
             <div class="head-box slideInDown animated" ></div>
             <!-- <p class="p1">这是一封来自River的约会请求~</p> -->
-            <h5 class="con-title">Dear 梦颖</h5>
+            <h5 class="con-title"></h5>
             
             <p class="p2">
                 好久没彼此面对面认真的沟通交流了<br>
@@ -481,8 +490,8 @@ function RndNum(n){
 
 
         function nextPage(){
-            $(".index").animate({top:"-130vh"},1500);
-            $(".con").animate({top:"0"},2000);
+            $(".index").animate({top:"-130vh"},500);
+            $(".con").animate({top:"0"},1000);
             setTimeout(function () {
             $('.head-box').css({
                 display:'block',
