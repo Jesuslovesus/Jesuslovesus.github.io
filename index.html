@@ -322,7 +322,7 @@ vl(100, 750);
             
             /* text-align: left; */
             padding: 0px;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
             font-size: 30px;
         }
 
@@ -365,6 +365,9 @@ vl(100, 750);
         }
         .con .pc.last{
             font-size: 12px;
+        }
+        .title strong{
+            /* font-family: Arial;             */
         }
     </style>
 </head>
@@ -478,8 +481,8 @@ function RndNum(n){
 
 
         function nextPage(){
-            $(".index").animate({top:"-130vh"},500);
-            $(".con").animate({top:"0"},1000);
+            $(".index").animate({top:"-130vh"},1500);
+            $(".con").animate({top:"0"},2000);
             setTimeout(function () {
             $('.head-box').css({
                 display:'block',
