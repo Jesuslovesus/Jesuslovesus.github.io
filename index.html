@@ -477,9 +477,9 @@ vl(100, 750);
             
             if(m>2){
                 setInterval(function(){
+                    window.document.title = arr[k]
+                    k++
                     if(k < arr.length){
-                        window.document.title = arr[k]
-                        k++
                         return   
                     }
                     k = 0
