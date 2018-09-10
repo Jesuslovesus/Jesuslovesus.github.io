@@ -66,8 +66,14 @@
         // $("#show").html($('#text').val())
 
         for(var i = 0; i < textArr.length; i++){
+
+
           $("#qrcode-box").append("<div class='qrcode'><div id='qrcode-" + i + "'></div><p>" + "二维码内容：" + textArr[i] +"</p></div>")
-          createQRCode("qrcode-" + i, $('#text').val(), 220, 220, "");
+          
+          (function(i){
+            createQRCode("qrcode-" + i,textArr[i], 220, 220, "");
+
+          })(i)
 
         }
 
